@@ -105,10 +105,13 @@ public class Player : MonoBehaviour
     }
 
     if(Input.GetKeyDown(KeyCode.J))
-        {
-            mAnimator.SetTrigger("Die");
-        }
-
+    {
+        mAnimator.SetTrigger("Die");
+    }
+    if (Input.GetKeyDown(KeyCode.H))
+    {
+        mAnimator.SetTrigger("Warm Up(Recarging)");
+    }
 
     }
 

@@ -65,11 +65,16 @@ namespace PGGE
                 float targetHeight = mPlayerTransform.position.y + CameraConstants.CameraPositionOffset.y; 
                 
                 // Lerp the current camera height to the target height
-                float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f); 
+                float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f);
 
                 Vector3 newPosition = new Vector3(hit.point.x, newHeight, hit.point.z);
                 mCameraTransform.position = newPosition;
+
+                
             }
+
+            
+
 
         }
 
@@ -79,6 +84,8 @@ namespace PGGE
             ObstacleCeiling();
         }
 
+
+        
 
 
         public abstract void Update();
