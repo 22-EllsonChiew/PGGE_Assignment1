@@ -72,10 +72,6 @@ namespace PGGE
 
                 
             }
-
-            
-
-
         }
 
         public void RepositionCamera()
