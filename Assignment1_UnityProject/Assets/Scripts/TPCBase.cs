@@ -39,14 +39,12 @@ namespace PGGE
 
             if (Physics.Raycast(mCameraTransform.position, direction, out hit, 2.0f))
             {
-
-
                 // Calculate the new camera position to show the player's height
-                float targetHeight = mPlayerTransform.position.y + CameraConstants.CameraPositionOffset.y; // Adjust as needed
+                float targetHeight = mPlayerTransform.position.y + CameraConstants.CameraPositionOffset.y; 
 
                 if (hit.point.y > targetHeight)
                 {
-                    float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f); // You can adjust the interpolation speed (5.0f in this case)
+                    float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f); 
 
                     // Set the new camera position with the updated height
                     Vector3 newPosition = new Vector3(hit.point.x, newHeight, hit.point.z);
@@ -64,13 +62,15 @@ namespace PGGE
             if (Physics.Raycast(mCameraTransform.position, direction, out hit, 2.0f))
             {
                 // Calculate the new camera position to show the player's height
-                float targetHeight = mPlayerTransform.position.y + CameraConstants.CameraPositionOffset.y; // Adjust as needed
+                float targetHeight = mPlayerTransform.position.y + CameraConstants.CameraPositionOffset.y; 
+                
                 // Lerp the current camera height to the target height
-                float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f); // You can adjust the interpolation speed (5.0f in this case)
+                float newHeight = Mathf.Lerp(mCameraTransform.position.y, targetHeight, Time.deltaTime * 5.0f); 
 
                 Vector3 newPosition = new Vector3(hit.point.x, newHeight, hit.point.z);
                 mCameraTransform.position = newPosition;
             }
+
         }
 
         public void RepositionCamera()
