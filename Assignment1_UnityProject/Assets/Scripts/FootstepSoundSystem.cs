@@ -43,35 +43,7 @@ public class FootstepSoundSystem : MonoBehaviour
     void Update()
     {
         
-            RaycastHit hit;
-            if (Physics.Raycast(RayCastShot.position, RayCastShot.transform.up * -1, out hit, range))
-            {
-                // Play different footstep sounds based on the detected layer
-                switch (hit.collider.gameObject.layer)
-                {
-                    case 9:  // Replace these numbers with the actual layer indices in your project
-                        PlayFootStepSound(concrete);
-                        break;
-
-                    case 10:
-                        PlayFootStepSound(dirt);
-                        break;
-
-                    case 11:
-                        PlayFootStepSound(metal);
-                        break;
-
-                    case 12:
-                        PlayFootStepSound(sand);
-                        break;
-
-                    case 13:
-                        PlayFootStepSound(wood);
-                        break;
-
-                }
-            }
-        
+            
 
     }
 
