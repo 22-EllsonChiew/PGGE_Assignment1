@@ -42,11 +42,7 @@ public class FootstepSoundSystem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*isMoving = Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0;
-
-        // Play footstep sound when moving
-        if (isMoving)
-        {
+        
             RaycastHit hit;
             if (Physics.Raycast(RayCastShot.position, RayCastShot.transform.up * -1, out hit, range))
             {
@@ -73,53 +69,50 @@ public class FootstepSoundSystem : MonoBehaviour
                         PlayFootStepSound(wood);
                         break;
 
-                    default:
-                        PlayFootStepSound(Footstep);
-                        break;
                 }
             }
-        }*/
+        
 
     }
 
     public void FootStepSound()
     {
-        //ray cast shot from the origin, then shot the direction * -1, which the ray cast will face upside down, then detech the layermask which is mask
-        if (Physics.Raycast(RayCastShot.position, RayCastShot.transform.up * -1, out hit, range, layerMask))
+         //ray cast shot from the origin, then shot the direction * -1, which the ray cast will face upside down, then detech the layermask which is mask
+         
+
+        RaycastHit hit;
+        if (Physics.Raycast(RayCastShot.position, RayCastShot.transform.up * -1, out hit, range))
         {
+            // Play different footstep sounds based on the detected layer
+            switch (hit.collider.gameObject.tag)
+            {
+                case "concrete":  //each case holds the tag name
+                    PlayFootStepSound(concrete);
+                    break;
 
-            Debug.Log("Raycast hit Ground");
+                case "dirt":
+                    PlayFootStepSound(dirt);
+                    break;
 
-            if (hit.collider.CompareTag("concrete"))
-            {
-                PlayFootStepSound(concrete);
-            }
-            if(hit.collider.CompareTag("dirt"))
-            {
-                PlayFootStepSound(dirt);
-            }
-            if(hit.collider.CompareTag("metal"))
-            {
-                PlayFootStepSound(metal);
-            }
-            if(hit.collider.CompareTag("sand"))
-            {
-                PlayFootStepSound(sand);
-            }
-            if (hit.collider.CompareTag("wood"))
-            {
-                PlayFootStepSound(wood);
-            }
-            if(hit.collider.CompareTag("water"))
-            {
-                PlayFootStepSound(water);
-            }
-            else
-            {
-                Debug.Log("Raycast did not hit anything.");
+                case "metal":
+                    PlayFootStepSound(metal);
+                    break;
+
+                case "sand":
+                    PlayFootStepSound(sand);
+                    break;
+
+                case "wood":
+                    PlayFootStepSound(wood);
+                    break;
+
+                case "water":
+                    PlayFootStepSound(water);
+                    break;
+
             }
         }
-    
+
 
     }
 
